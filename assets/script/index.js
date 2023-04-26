@@ -15,8 +15,10 @@ function loadTodo() {
       div.setAttribute("id", index);
       const textNode = document.createTextNode(element.text);
       div.appendChild(textNode);
-      div.addEventListener("mousedown", deleteOrMarkTodo);
-      div.addEventListener("contextmenu", (e) => e.preventDefault());
+      div.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        deleteOrMarkTodo(e);
+      });
       todoContainer.appendChild(div);
     });
   } else {
